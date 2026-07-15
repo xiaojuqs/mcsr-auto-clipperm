@@ -1,0 +1,41 @@
+# MCSR Rank 比赛自动剪辑工具 - 配置文件示例
+# 复制此文件为 config.yaml 并根据需要修改
+
+# MCSR API 配置
+mcsr:
+  # API 基础 URL（一般不需要修改）
+  api_base: https://api.mcsrranked.com
+  # 默认赛季号（留空则使用当前赛季）
+  season: null
+
+# TwitchDownloaderCLI 配置
+twitch:
+  # TwitchDownloaderCLI 路径
+  cli_path: TwitchDownloaderCLI
+  # 视频质量
+  quality: null  # 例如: 1080p60
+
+# 剪辑配置
+clip:
+  # 事件前缓冲秒数
+  buffer_before: 10
+  # 事件后缓冲秒数
+  buffer_after: 5
+  # 最大比赛时长（秒），超过则跳过
+  max_duration: null
+
+# 输出配置
+output:
+  # 输出目录
+  directory: output
+  # 文件名模板
+  # 可用变量: {username}, {date}, {match_id}, {event_type}, {timestamp}
+  filename_template: "match_{match_id}_{event_type}_{timestamp}.mp4"
+
+# 事件过滤
+events:
+  # 要剪辑的事件类型（留空则剪辑所有事件）
+  # 可选: death, nether, bastion, fortress, stronghold, end, dragon
+  include: []
+  # 要排除的事件类型
+  exclude: []
